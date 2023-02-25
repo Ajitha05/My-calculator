@@ -2,8 +2,10 @@ package com.example.mycaci;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
@@ -15,6 +17,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     MaterialButton buttondiv,buttonmul,buttonplus,buttonminus,buttoneqal,buttonc;
     MaterialButton button0,button1,button2,button3,button4,button5,button6,button7,button8,button9;
     MaterialButton buttonac,buttondot,buttonopen,buttonclose;
+
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         assignId(buttonclose,R.id.button_clode);
         assignId(buttonopen,R.id.button_open);
         assignId(buttoneqal,R.id.button_equal);
+        btn = findViewById(R.id.switchbtn);
 
 
 
@@ -54,11 +59,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn.setOnClickListener(this);
     }
 
+
+
     @Override
     public void onClick(View view) {
         MaterialButton button =(MaterialButton) view;
         String buttonText = button.getText().toString();
         String datacalculate = solutiontv.getText().toString();
+
 
         if(buttonText.equals("AC")){
             solutiontv.setText("");
@@ -78,9 +86,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         solutiontv.setText(datacalculate);
         String finalResult = getresult(datacalculate);
 
+
         if(!finalResult.equals("err")){
             resultv.setText(finalResult);
         }
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,MainActivity2.class));
+            }
+        });
 
 
     }
@@ -97,6 +112,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }catch (Exception e){
             return "err";
         }
+
 
     }
 }
