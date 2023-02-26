@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -20,8 +21,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     Button btn;
 
+    public MainActivity() {
+        super();
+    }
+
+    @Override
+    protected void onStart() {
+        Log.d("aji","Onstartcalled" );
+        super.onStart();
+    }
+
+    @Override
+    protected void onRestart() {
+        Log.d("aji","Onrestartcalled" );
+        super.onRestart();
+    }
+
+    @Override
+    protected void onStop() {
+        Log.d("aji","Onstartcalled" );
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.d("aji","Ondestriycalled" );
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onPause() {
+        Log.d("aji","Onpausecalled" );
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        Log.d("aji","Onresumecalled" );
+        super.onResume();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("aji","Oncreate called" );
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         resultv = findViewById(R.id.result);
@@ -113,6 +155,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return "err";
         }
 
-
-    }
-}
+    }}
