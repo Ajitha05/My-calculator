@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity2 extends AppCompatActivity {
-    Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bdot,bpi,bequal,bplus,bmin,bmul,bdiv,binv,bsqrt,bsquare,bfact,bln,blog,btan,bcos,bsin,bb1,bb2,bc,bac;
+    Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,bdot,bpi,bequal,bplus,bmin,bmul,bdiv,binv,bsqrt,bsquare,bfact,bln,blog,btan,bcos,bsin,bb1,bb2,bc,bac,arrow;
     TextView tvmain,tvsec;
     String pi = "3.14159265";
 
@@ -17,6 +17,8 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+
 
         b1 = findViewById(R.id.b1);
         b2 = findViewById(R.id.b2);
@@ -44,10 +46,11 @@ public class MainActivity2 extends AppCompatActivity {
         btan = findViewById(R.id.btan);
         bsin = findViewById(R.id.sin);
         bcos = findViewById(R.id.bcos);
-        bb1 = findViewById(R.id.b1);
-        bb2 = findViewById(R.id.b2);
+        bb1 = findViewById(R.id.bbarc1);
+        bb2 = findViewById(R.id.bbarc2);
         bc = findViewById(R.id.bc);
         bac = findViewById(R.id.bac);
+        arrow = findViewById(R.id.alterr);
 
         tvmain = findViewById(R.id.tvmain);
         tvsec = findViewById(R.id.tvsec);
@@ -250,7 +253,15 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
+        arrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity2.this,MainActivity.class));
+            }
+        });
+
     }
+
 
     //factorial function
     int factorial(int n)
